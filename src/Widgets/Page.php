@@ -9,29 +9,34 @@
 namespace Rabsanaco\BS4UiKit\Widgets;
 
 
+use Illuminate\Support\Facades\App;
 use Rabsanaco\Contracts\UI\Widgets\Content;
 use Rabsanaco\Contracts\UI\Widgets\Footer;
 use Rabsanaco\Contracts\UI\Widgets\Graphic;
 use Rabsanaco\Contracts\UI\Widgets\Header;
-use Rabsanaco\Contracts\UI\Widgets\Sidebar;
+use Rabsanaco\Contracts\UI\Widgets\Navigation;
+use Rabsanaco\Contracts\UI\Widgets\Page as AbstractPage;
 
-class Page extends \Rabsanaco\Contracts\UI\Widgets\Page
+class Page extends AbstractPage
 {
     protected $header;
 
-    protected $sidebar;
+    protected $navigation;
 
     protected $content;
 
     protected $footer;
 
-    public function add(Graphic $graphic){
 
-    }
 
-    public function addHeader(Header $header)
+    public function setHeader(Header $header)
     {
         $this->header = $header;
+    }
+
+    public function hasHeader()
+    {
+        return !empty($this->header);
     }
 
     public function getHeader()
@@ -39,36 +44,46 @@ class Page extends \Rabsanaco\Contracts\UI\Widgets\Page
         return $this->header;
     }
 
-    public function addContent(Content $content)
+    public function setContent(Content $content)
     {
         $this->content = $content;
+    }
+
+    public function hasContent()
+    {
+        return !empty($this->content);
     }
 
     public function getContent(){
         return $this->content;
     }
 
-    public function addFooter(Footer $footer)
+    public function setFooter(Footer $footer)
     {
-        // TODO: Implement addFooter() method.
+        $this->footer = $footer;
+    }
+
+    public function hasFooter()
+    {
+        return !empty($this->footer);
     }
 
     public function getFooter(){
         return $this->footer;
     }
 
-    public function addSidebar(Sidebar $sidebar)
+    public function setNavigation(Navigation $navigation)
     {
-        // TODO: Implement addSidebar() method.
+        $this->navigation = $navigation;
     }
 
-    public function getSidebar(){
-        return $this->sidebar;
+    public function hasNavigation()
+    {
+        return !empty($this->navigation);
     }
 
-    public function remove(Graphic $widget)
-    {
-        // TODO: Implement remove() method.
+    public function getNavigation(){
+        return $this->navigation;
     }
 
     public function draw()
@@ -77,4 +92,6 @@ class Page extends \Rabsanaco\Contracts\UI\Widgets\Page
 
         return view('rabsanaco-bs4-ui-kit::page', compact('drawer'));
     }
+
+
 }

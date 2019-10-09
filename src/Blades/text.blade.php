@@ -1,0 +1,1 @@
+<span>{!! $drawer->getContent() !!}</span>

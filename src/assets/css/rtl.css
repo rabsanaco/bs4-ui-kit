@@ -1,0 +1,67 @@
+html,body, div, span, input, textarea, p, h1, h2,h3,h4,h5,h6,table,th,tr,td{
+    direction: rtl;
+    text-align: right;
+    font-family: IRANSans, Tahoma;
+}
+
+@media (min-width: 992px){
+    .side-nav {
+        right: 0;
+        left: unset;
+    }
+}
+.side-nav-menu-top-level {
+    padding-right: 0;
+    padding-left: unset;
+}
+
+.side-nav-menu-icon.mr-3{
+    margin-right: unset;
+    margin-left: 1rem !important;
+}
+
+.header  .navbar  .ml-auto{
+    margin-left: unset !important;
+    margin-right: auto !important;
+}
+
+.sidebar-right{
+    left: 0;
+    right: unset;
+}
+.unfold{
+    padding-right: 0;
+}
+.unfold-item-icon.mr-3{
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+@media (min-width: 768px){
+    #profileMenuInvoker .mr-md-2, .mx-md-2 {
+        margin-left: 0.5rem !important;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 992px){
+    body.has-sidebar .main {
+        padding-right: 15.63rem;
+        padding-left: unset;
+    }
+}
+
+@media (min-width: 992px){
+    footer .text-lg-left {
+        text-align: right !important;
+    }
+    footer .text-lg-right {
+        text-align: left !important;
+    }
+}
+
+.breadcrumb-item + .breadcrumb-item::before{
+    padding-right: 0;
+    padding-left: 0.5rem;
+    transform: rotate(180deg);
+}
