@@ -4,14 +4,14 @@
       <h5 class=" mb-3">
         {!! $drawer->getTitle() !!}
       </h5>
-    @endif
-    <!-- Breadcrumb -->
+  @endif
+  <!-- Breadcrumb -->
     <nav class="d-none d-md-block" aria-label="breadcrumb">
       <ol class="breadcrumb">
         @foreach($drawer->getGraphics() as $g)
-        <li class="breadcrumb-item {{$loop->last ? ' active ' : ''}}" @if($loop->last) aria-current="page" @endif>
-          {!! $g->draw() !!}
-        </li>
+          <li class="breadcrumb-item {{$loop->last ? ' active ' : ''}}" @if($loop->last) aria-current="page" @endif>
+            {!! $g->draw() !!}
+          </li>
         @endforeach
       </ol>
     </nav>

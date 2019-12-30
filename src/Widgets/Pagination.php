@@ -8,9 +8,8 @@
 namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Pagination extends \Rabsanaco\Contracts\UI\Widgets\Pagination{
-    public function draw()
-    {
-        $drawer = $this;
-        return view('rabsanaco-bs4-ui-kit::pagination', compact('drawer'));
+
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::pagination';
     }
 }

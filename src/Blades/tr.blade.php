@@ -1,5 +1,5 @@
 <tr>
   @foreach($drawer->getGraphics() as $g)
-  {!! $g->draw() !!}
+    {!! $g->draw() !!}
   @endforeach
 </tr>

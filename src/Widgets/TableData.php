@@ -9,10 +9,8 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class TableData extends \Rabsanaco\Contracts\UI\Widgets\Container
 {
-    public function draw()
-    {
-        $drawer = $this;
 
-        return view('rabsanaco-bs4-ui-kit::td', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::td';
     }
 }

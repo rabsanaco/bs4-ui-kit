@@ -9,8 +9,8 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Alert extends \Rabsanaco\Contracts\UI\Widgets\Alert
 {
-    public function draw()
-    {
-        return view('rabsanaco-bs4-ui-kit::alert');
+
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::alert';
     }
 }

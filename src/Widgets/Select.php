@@ -7,13 +7,23 @@
  */
 namespace Rabsanaco\BS4UiKit\Widgets;
 use Rabsanaco\Contracts\UI\Widgets\Select as BaseInput;
+use Rabsanaco\UIManager\Events\PushScript;
 
 class Select extends BaseInput
 {
     public function draw()
     {
-        $drawer = $this;
+        // Options are remote
+        if(is_string($this->getOptions())){
+            $id = $this->getId();
+            $url = $this->getOptions();
+            event(new PushScript(view('rabsanaco-bs4-ui-kit::select2', compact('id', 'url'))));
+        }
 
-        return view('rabsanaco-bs4-ui-kit::select', compact('drawer'));
+        return parent::draw();
+    }
+
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::select';
     }
 }

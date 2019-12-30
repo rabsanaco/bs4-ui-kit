@@ -13,10 +13,7 @@ use Rabsanaco\Contracts\UI\Widgets\Graphic;
 
 class Content extends \Rabsanaco\Contracts\UI\Widgets\Content
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::content', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::content';
     }
 }

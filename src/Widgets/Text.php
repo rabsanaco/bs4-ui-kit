@@ -8,9 +8,7 @@
 namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Text extends \Rabsanaco\Contracts\UI\Widgets\Text{
-    public function draw()
-    {
-        $drawer = $this;
-        return view('rabsanaco-bs4-ui-kit::text', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::text';
     }
 }

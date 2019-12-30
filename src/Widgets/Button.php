@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Button extends \Rabsanaco\Contracts\UI\Widgets\Button
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::button', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::button';
     }
 }

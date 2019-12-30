@@ -10,10 +10,7 @@ use Rabsanaco\Contracts\UI\Widgets\Textarea as BaseTextarea;
 
 class Textarea extends BaseTextarea
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::textarea', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::textarea';
     }
 }

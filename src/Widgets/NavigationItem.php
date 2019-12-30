@@ -9,10 +9,8 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class NavigationItem extends \Rabsanaco\Contracts\UI\Widgets\NavigationItem
 {
-    public function draw()
-    {
-        $drawer = $this;
 
-        return view('rabsanaco-bs4-ui-kit::navigation-item', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::navigation-item';
     }
 }

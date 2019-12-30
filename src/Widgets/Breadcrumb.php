@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Breadcrumb extends \Rabsanaco\Contracts\UI\Widgets\Breadcrumb
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::breadcrumb', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::breadcrumb';
     }
 }

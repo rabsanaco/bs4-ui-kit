@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Link extends \Rabsanaco\Contracts\UI\Widgets\Link
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::link', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::link';
     }
 }

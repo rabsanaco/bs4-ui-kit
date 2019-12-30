@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Badge extends \Rabsanaco\Contracts\UI\Widgets\Badge
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::badge', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::badge';
     }
 }

@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Graphic extends \Rabsanaco\Contracts\UI\Widgets\Graphic
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::graphic', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::graphic';
     }
 }

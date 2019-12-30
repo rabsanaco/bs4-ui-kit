@@ -8,53 +8,84 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="{{ $drawer->getDescription() }}">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="shortcut icon" href="{{ $drawer->getFavicon() }}">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+  {{--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">--}}
 
-  <link href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/nova-icons/nova-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/nova-icons/nova-icons.css') }}"
+        rel="stylesheet">
 
   <!-- CSS Implementing Libraries -->
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/animate.css/animate.min.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/flatpickr/dist/flatpickr.min.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/select2/dist/css/select2.min.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/chartist/dist/chartist.min.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/jquery-shorten/src/jquery.shorten.css') }}">
-  <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/fontawesome-5.12/css/all.min.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/animate.css/animate.min.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/flatpickr/dist/flatpickr.min.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/select2/dist/css/select2.min.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/chartist/dist/chartist.min.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/jquery-shorten/src/jquery.shorten.css') }}">
+  <link rel="stylesheet"
+        href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/vendor/fontawesome-5.12/css/all.min.css') }}">
 
   <!-- CSS Nova Template -->
   <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/css/theme.css') }}">
 
-  @if($drawer->getDirection() === 'rtl')
-    <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/font/iransans/css/fontiran.css') }}">
+  @if(Loc::isRtl())
+    <link rel="stylesheet"
+          href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/font/iransans/css/fontiran.css') }}">
     <link rel="stylesheet" href="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/css/rtl.css') }}">
   @endif
-</head>
 
-<body class="has-sidebar has-fixed-sidebar-and-header">
-@if( $drawer->hasHeader() )
-{!! $drawer->getHeader()->draw() !!}
-@endif
-
-<main class="main">
-  @if( $drawer->hasNavigation() )
-    {!! $drawer->getNavigation()->draw() !!}
+  @if(setting('security.recaptcha_status', 'disabled') == 'enabled' && setting('security.recaptcha_site_key') && setting('security.recaptcha_secret_key'))
+    {!! (new \Biscolab\ReCaptcha\ReCaptchaBuilderV3(setting('security.recaptcha_site_key'), setting('security.recaptcha_secret_key')))->htmlScriptTagJsApi([
+      'lang' => 'fa'
+    ]) !!}
   @endif
 
-  <div class="content">
-    @if( $drawer->hasContent() )
-      {!! $drawer->getContent()->draw() !!}
+  @foreach($drawer->getStyles() as $style)
+    {!! $style !!}
+  @endforeach
+
+  {{--<script src="https://unpkg.com/react@16/umd/react.{{env('APP_ENV') === 'local' ? 'development' : 'production.min'}}.js" crossorigin></script>--}}
+  {{--<script src="https://unpkg.com/react-dom@16/umd/react-dom.{{env('APP_ENV') === 'local' ? 'development' : 'production.min'}}.js" crossorigin></script>--}}
+  {{--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>--}}
+</head>
+
+<body class="{{ $drawer->getBodyClasses() }}">
+@if( $drawer->hasHeader() )
+  {!! $drawer->getHeader()->draw() !!}
+@endif
+
+<main class="{{ $drawer->getMainClasses() }}">
+  @if(empty($drawer->getGraphics()))
+    @if( $drawer->hasNavigation() )
+      {!! $drawer->getNavigation()->draw() !!}
     @endif
 
-    @if( $drawer->hasFooter() )
-      {!! $drawer->getFooter()->draw() !!}
-    @endif
-  </div>
+    <div class="content">
+      @if( $drawer->hasContent() )
+        {!! $drawer->getContent()->draw() !!}
+      @endif
+
+      @if( $drawer->hasFooter() )
+        {!! $drawer->getFooter()->draw() !!}
+      @endif
+    </div>
+  @else
+    @foreach($drawer->getGraphics() as $g)
+      {!! $g->draw() !!}
+    @endforeach
+  @endif
 </main>
 
 <!-- JS Global Compulsory -->
@@ -89,8 +120,9 @@
 <script src="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/js/components/hs.chartist-donut.js') }}"></script>
 <script src="{{ asset(config('rabsanaco-bs4-ui-kit.assets_path') . '/js/components/hs.datatables.js') }}"></script>
 <script type="text/javascript" src="{{ url('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.13.0/full/ckeditor.js"></script>
 @foreach($drawer->getValidators() as $validator)
-{!! JsValidator::formRequest($validator) !!}
+  {!! JsValidator::formRequest($validator) !!}
 @endforeach
 
 <!-- JS Libraries Init. -->
@@ -130,8 +162,8 @@
                     shorthand: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
                 }
             },
-            nextArrow: '<i class="nova-arrow-right icon-text icon-text-xs"></i>',
-            prevArrow: '<i class="nova-arrow-left icon-text icon-text-xs"></i>'
+            nextArrow: '<i class="fas fa-arrow-right icon-text icon-text-xs"></i>',
+            prevArrow: '<i class="fas fa-arrow-left icon-text icon-text-xs"></i>'
         });
 
         $.HSCore.components.HSFlatpickr.init('#rangeDatepicker, #rangeDatepickerMyPortfolio', {
@@ -141,8 +173,8 @@
                 },
                 rangeSeparator: ' - '
             },
-            nextArrow: '<em class="nova-arrow-right"></em>',
-            prevArrow: '<em class="nova-arrow-left"></em>'
+            nextArrow: '<em class="fas fa-arrow-right"></em>',
+            prevArrow: '<em class="fas fa-arrow-left"></em>'
         });
 
         // initialization of show on type module
@@ -165,11 +197,14 @@
         // initialization of datatables
         $.HSCore.components.HSDatatables.init('.js-datatable', {
             "columnDefs": [
-                { "orderable": false, "targets": 8 }
+                {"orderable": false, "targets": 8}
             ]
         });
     });
 </script>
+@foreach($drawer->getScripts() as $script)
+  {!! $script !!}
+@endforeach
 </body>
 </html>
 

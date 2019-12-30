@@ -10,10 +10,7 @@ use Rabsanaco\Contracts\UI\Widgets\Form as BaseForm;
 
 class Form extends BaseForm
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::form', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::form';
     }
 }

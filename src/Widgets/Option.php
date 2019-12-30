@@ -9,9 +9,8 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Option extends \Rabsanaco\Contracts\UI\Widgets\Option
 {
-    public function draw()
-    {
-        $drawer = $this;
-        return view('rabsanaco-bs4-ui-kit::option', compact('drawer'));
+
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::option';
     }
 }

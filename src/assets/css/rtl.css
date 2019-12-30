@@ -65,3 +65,65 @@ html,body, div, span, input, textarea, p, h1, h2,h3,h4,h5,h6,table,th,tr,td{
     padding-left: 0.5rem;
     transform: rotate(180deg);
 }
+
+.list-group-item-closer{
+    left: 1.5rem;
+    right: unset;
+}
+#notifications .list-group-item i.mr-2{
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+textarea[dir="ltr"]{
+    direction: ltr!important;
+}
+.input-group-merge .input-group-append-merge{
+    left: 1rem;
+    right: unset;
+}
+.input-group-merge .form-control-append-icon{
+    padding-left: 2.5rem;
+    padding-right: 1rem;
+}
+.nav-pills-v2.nav{
+    padding-right: 0!important;
+    padding-left: unset;
+}
+.nav-pills-v2 .nav-item {
+    margin-left: 0.63rem;
+    margin-right: 0;
+}
+.nav-pills-v2 .nav-item:last-child{
+    margin-left: 0;
+}
+.side-nav{
+    left: unset;
+    right: 0;
+}
+body.side-nav-hidden:not(.side-nav-mini-mode) .side-nav{
+    left: unset;
+    right: -15.63rem;
+}
+@media (max-width: 767.98px){
+    .dropdown-menu-center {
+        -webkit-transform: translateX(-30%);
+        transform: translateX(-30%);
+    }
+}
+
+.unfold-centered {
+    left: 50%;
+    -webkit-transform: translateX(-37%);
+    transform: translateX(-37%);
+}
+
+@media (max-width: 767.98px){
+    .unfold-centered {
+        -webkit-transform: translateX(-18%);
+        transform: translateX(-18%);
+    }
+}
+.side-nav-menu-link{
+    padding: 0.75rem 0.25rem 0.75rem 1.25rem;
+}
+

@@ -9,8 +9,8 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Br extends \Rabsanaco\Contracts\UI\Widgets\Br
 {
-    public function draw()
-    {
-        return view('rabsanaco-bs4-ui-kit::br');
+
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::br';
     }
 }

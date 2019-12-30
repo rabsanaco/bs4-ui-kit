@@ -10,10 +10,7 @@ use Rabsanaco\Contracts\UI\Widgets\Input as BaseInput;
 
 class Input extends BaseInput
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::input', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::input';
     }
 }

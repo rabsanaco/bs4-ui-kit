@@ -12,7 +12,8 @@
     "minimum-stability": "stable",
     "require": {
         "proengsoft/laravel-jsvalidation": ">2.2.0",
-        "rabsanaco/contracts": "dev-master"
+        "rabsanaco/contracts": "dev-master",
+        "rabsanaco/locale": "^1.1"
     },
     "autoload": {
         "psr-4": {

@@ -9,10 +9,7 @@ namespace Rabsanaco\BS4UiKit\Widgets;
 
 class Card extends \Rabsanaco\Contracts\UI\Widgets\Card
 {
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::card', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::card';
     }
 }

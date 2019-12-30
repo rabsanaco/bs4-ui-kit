@@ -27,6 +27,11 @@ class Page extends AbstractPage
 
     protected $footer;
 
+    public function __construct()
+    {
+        $this->setBodyClasses('has-sidebar has-fixed-sidebar-and-header');
+        $this->setMainClasses('main');
+    }
 
 
     public function setHeader(Header $header)
@@ -86,11 +91,8 @@ class Page extends AbstractPage
         return $this->navigation;
     }
 
-    public function draw()
-    {
-        $drawer = $this;
-
-        return view('rabsanaco-bs4-ui-kit::page', compact('drawer'));
+    public function view(){
+        return 'rabsanaco-bs4-ui-kit::page';
     }
 
 
